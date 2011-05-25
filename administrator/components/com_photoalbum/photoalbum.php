@@ -6,4 +6,4 @@ if(!defined('KOOWA')) {
     return;
 }
 
-echo KFactory::get('admin::com.album.dispatcher')->dispatch();
+echo KFactory::get('admin::com.photoalbum.dispatcher')->dispatch();

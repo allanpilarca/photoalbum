@@ -3,7 +3,7 @@
 /**
 * 
 */
-class ComAlbumViewHtml extends ComDefaultViewHtml
+class ComPhotoalbumViewHtml extends ComDefaultViewHtml
 {
     
     public function __construct(KConfig $config)
