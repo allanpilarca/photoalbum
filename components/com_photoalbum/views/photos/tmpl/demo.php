@@ -4,6 +4,7 @@
 
 <!-- The JavaScript -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" />
+
 <script>
     jQuery.noConflict()(function() {
 		/**
@@ -18,7 +19,7 @@
 		var playtime;
 		var current 			= 0;
 		var current_thumb 		= 0;
-		var nmb_thumb_wrappers	= jQuery('#msg_thumbs .msg_thumb_wrapper').length;
+		var nmb_thumb_wrappers	= $('#msg_thumbs .msg_thumb_wrapper').length;
 		var nmb_images_wrapper  = 6;
 		/**
 		* start the slideshow
@@ -31,7 +32,7 @@
 		*/
 		slideshowMouseEvent();
 		function slideshowMouseEvent(){
-			jQuery('#msg_slideshow').unbind('mouseenter')
+			$('#msg_slideshow').unbind('mouseenter')
 							   .bind('mouseenter',showControls)
 							   .andSelf()
 							   .unbind('mouseleave')
@@ -42,11 +43,11 @@
 		* clicking the grid icon,
 		* shows the thumbs view, pauses the slideshow, and hides the controls
 		*/
-		jQuery('#msg_grid').bind('click',function(e){
+		$('#msg_grid').bind('click',function(e){
 			hideControls();
-			jQuery('#msg_slideshow').unbind('mouseenter').unbind('mouseleave');
+			$('#msg_slideshow').unbind('mouseenter').unbind('mouseleave');
 			pause();
-			jQuery('#msg_thumbs').stop().animate({'top':'0px'},500);
+			$('#msg_thumbs').stop().animate({'top':'0px'},500);
 			e.preventDefault();
 		});
 		
@@ -54,18 +55,18 @@
 		* closing the thumbs view,
 		* shows the controls
 		*/
-		jQuery('#msg_thumb_close').bind('click',function(e){
+		$('#msg_thumb_close').bind('click',function(e){
 			showControls();
 			slideshowMouseEvent();
-			jQuery('#msg_thumbs').stop().animate({'top':'-230px'},500);
+			$('#msg_thumbs').stop().animate({'top':'-230px'},500);
 			e.preventDefault();
 		});
 		
 		/**
 		* pause or play icons
 		*/
-		jQuery('#msg_pause_play').bind('click',function(e){
-			var $this = jQuery(this);
+		$('#msg_pause_play').bind('click',function(e){
+			var $this = $(this);
 			if($this.hasClass('msg_play'))
 				play();
 			else
@@ -78,12 +79,12 @@
 		* pauses the slideshow, 
 		* and displays the next or prevoius image
 		*/
-		jQuery('#msg_next').bind('click',function(e){
+		$('#msg_next').bind('click',function(e){
 			pause();
 			next();
 			e.preventDefault();
 		});
-		jQuery('#msg_prev').bind('click',function(e){
+		$('#msg_prev').bind('click',function(e){
 			pause();
 			prev();
 			e.preventDefault();
@@ -93,10 +94,10 @@
 		* show and hide controls functions
 		*/
 		function showControls(){
-			jQuery('#msg_controls').stop().animate({'right':'15px'},500);
+			$('#msg_controls').stop().animate({'right':'15px'},500);
 		}
 		function hideControls(){
-			jQuery('#msg_controls').stop().animate({'right':'-110px'},500);
+			$('#msg_controls').stop().animate({'right':'-110px'},500);
 		}
 		
 		/**
@@ -104,7 +105,7 @@
 		*/
 		function play(){
 			next();
-			jQuery('#msg_pause_play').addClass('msg_pause').removeClass('msg_play');
+			$('#msg_pause_play').addClass('msg_pause').removeClass('msg_play');
 			playtime = setInterval(next,interval)
 		}
 		
@@ -112,7 +113,7 @@
 		* stops the slideshow
 		*/
 		function pause(){
-			jQuery('#msg_pause_play').addClass('msg_play').removeClass('msg_pause');
+			$('#msg_pause_play').addClass('msg_play').removeClass('msg_pause');
 			clearTimeout(playtime);
 		}
 		
@@ -146,29 +147,29 @@
 			/**
 			* the thumb that will be displayed in full mode
 			*/
-			var $thumb = jQuery('#msg_thumbs .msg_thumb_wrapper:nth-child('+current_thumb+')')
+			var $thumb = $('#msg_thumbs .msg_thumb_wrapper:nth-child('+current_thumb+')')
 						.find('a:nth-child('+ parseInt(current - nmb_images_wrapper*(current_thumb -1)) +')')
 						.find('img');
 			if($thumb.length){
 				var source = $thumb.attr('alt');
-				var $currentImage = jQuery('#msg_wrapper').find('img');
+				var $currentImage = $('#msg_wrapper').find('img');
 				if($currentImage.length){
 					$currentImage.fadeOut(function(){
-						jQuery(this).remove();
-						jQuery('<img />').load(function(){
-							var $image = jQuery(this);
+						$(this).remove();
+						$('<img />').load(function(){
+							var $image = $(this);
 							resize($image);
 							$image.hide();
-							jQuery('#msg_wrapper').empty().append($image.fadeIn());
+							$('#msg_wrapper').empty().append($image.fadeIn());
 						}).attr('src',source);
 					});
 				}
 				else{
-					jQuery('<img />').load(function(){
-							var $image = jQuery(this);
+					$('<img />').load(function(){
+							var $image = $(this);
 							resize($image);
 							$image.hide();
-							jQuery('#msg_wrapper').empty().append($image.fadeIn());
+							$('#msg_wrapper').empty().append($image.fadeIn());
 					}).attr('src',source);
 				}
 						
@@ -188,7 +189,7 @@
 		* the one containing the current image
 		*/
 		function alternateThumbs(){
-			jQuery('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
+			$('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
 							.hide();
 			current_thumb = Math.ceil(current/nmb_images_wrapper);
 			/**
@@ -206,25 +207,25 @@
 				current 		= current_thumb*nmb_images_wrapper;
 			}
 			
-			jQuery('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
+			$('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
 							.show();	
 		}
 		
 		/**
 		* click next or previous on the thumbs wrapper
 		*/
-		jQuery('#msg_thumb_next').bind('click',function(e){
+		$('#msg_thumb_next').bind('click',function(e){
 			next_thumb();
 			e.preventDefault();
 		});
-		jQuery('#msg_thumb_prev').bind('click',function(e){
+		$('#msg_thumb_prev').bind('click',function(e){
 			prev_thumb();
 			e.preventDefault();
 		});
 		function next_thumb(){
-			var $next_wrapper = jQuery('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+parseInt(current_thumb+1)+')');
+			var $next_wrapper = $('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+parseInt(current_thumb+1)+')');
 			if($next_wrapper.length){
-				jQuery('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
+				$('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
 								.fadeOut(function(){
 									++current_thumb;
 									$next_wrapper.fadeIn();									
@@ -232,9 +233,9 @@
 			}
 		}
 		function prev_thumb(){
-			var $prev_wrapper = jQuery('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+parseInt(current_thumb-1)+')');
+			var $prev_wrapper = $('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+parseInt(current_thumb-1)+')');
 			if($prev_wrapper.length){
-				jQuery('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
+				$('#msg_thumbs').find('.msg_thumb_wrapper:nth-child('+current_thumb+')')
 								.fadeOut(function(){
 									--current_thumb;
 									$prev_wrapper.fadeIn();									
@@ -245,19 +246,19 @@
 		/**
 		* clicking on a thumb, displays the image (alt attribute of the thumb)
 		*/
-		jQuery('#msg_thumbs .msg_thumb_wrapper > a').bind('click',function(e){
-			var $this 		= jQuery(this);
-			jQuery('#msg_thumb_close').trigger('click');
+		$('#msg_thumbs .msg_thumb_wrapper > a').bind('click',function(e){
+			var $this 		= $(this);
+			$('#msg_thumb_close').trigger('click');
 			var idx			= $this.index();
 			var p_idx		= $this.parent().index();
 			current			= parseInt(p_idx*nmb_images_wrapper + idx + 1);
 			showImage();
 			e.preventDefault();
 		}).bind('mouseenter',function(){
-			var $this 		= jQuery(this);
+			var $this 		= $(this);
 			$this.stop().animate({'opacity':1});
 		}).bind('mouseleave',function(){
-			var $this 		= jQuery(this);	
+			var $this 		= $(this);	
 			$this.stop().animate({'opacity':0.5});
 		});
 		
@@ -311,9 +312,9 @@
 			});
 		}
     });
-</script>
+</script>    
 
-<div id="msg_slideshow" class="msg_slideshow" style="margin: 0 auto;">
+<div id="msg_slideshow" class="msg_slideshow">
 	<div id="msg_wrapper" class="msg_wrapper">
 	</div>
 	<div id="msg_controls" class="msg_controls"><!-- right has to animate to 15px, default -110px -->
@@ -323,28 +324,23 @@
 		<a href="#" id="msg_next" class="msg_next"></a>
 	</div>
 	<div id="msg_thumbs" class="msg_thumbs"><!-- top has to animate to 0px, default -230px -->
-            <? $list = array(); ?>
-            <? $group = 0; $ctr = 0;?>
-            <? foreach ($photos as $photo): ?>
-            <? $filename = basename($photo->filename); ?>
-            <? $base_path = dirname($photo->filename); ?>
-            <? $thumb_large = $base_path.DS.'thumbs'.DS.'thumb_l_'.$filename; ?>
-            <? $thumb_medium = $base_path.DS.'thumbs'.DS.'thumb_m_'.$filename; ?>
-            <? $thumb_small = $base_path.DS.'thumbs'.DS.'thumb_s_'.$filename; ?>
-            <? $photo->thumb_small = $thumb_small;?>
-            <? $list[$group][] = $photo; ?>
-            <? if ($ctr == 5) { $group++; $ctr=0; } else { $ctr++; }?>
-            <? endforeach; ?>
+		<div class="msg_thumb_wrapper">
+    		<a href="#"><img src="images/thumbs/1.jpg" alt="images/1.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/2.jpg" alt="images/2.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/3.jpg" alt="images/3.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/4.jpg" alt="images/4.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/5.jpg" alt="images/5.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/6.jpg" alt="images/6.jpg"/></a>
+		</div>
+		<div class="msg_thumb_wrapper" style="display:none;">
+    		<a href="#"><img src="images/thumbs/7.jpg" alt="images/7.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/8.jpg" alt="images/8.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/9.jpg" alt="images/9.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/10.jpg" alt="images/10.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/11.jpg" alt="images/11.jpg"/></a>
+    		<a href="#"><img src="images/thumbs/12.jpg" alt="images/12.jpg"/></a>
+	    </div>
 
-            <? $first = true; ?>
-            <? foreach ($list as $items): ?>
-                <div class="msg_thumb_wrapper" <?= !$first ? 'style="display:none"' : ''; ?>>
-                <? foreach ($items as $item): ?>
-                    <a href="#"><img src="media://com_photoalbum/photos/<?= $item->thumb_small; ?>" alt="media://com_photoalbum/photos/<?= $item->filename;?>" /></a>
-                <? endforeach; ?>
-                </div>
-                <? $first = false; ?>
-            <? endforeach; ?>
 		<a href="#" id="msg_thumb_next" class="msg_thumb_next"></a>
 		<a href="#" id="msg_thumb_prev" class="msg_thumb_prev"></a>
 		<a href="#" id="msg_thumb_close" class="msg_thumb_close"></a>

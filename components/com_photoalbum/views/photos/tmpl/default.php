@@ -23,7 +23,8 @@
     <? $thumb_medium = $base_path.DS.'thumbs'.DS.'thumb_m_'.$filename; ?>
     <? $thumb_small = $base_path.DS.'thumbs'.DS.'thumb_s_'.$filename; ?>
     <div class="box">
-        <a href="media://com_photoalbum/photos/<?= $photo->filename;?>" class="modal">
+        <?/*?><a href="media://com_photoalbum/photos/<?= $photo->filename;?>" class="modal"><?*/?>
+            <a href="<?= @route('view=photos&album='.$album->id.'&layout=minimalistic&tmpl=component');?>" class="modal" rel="{handler: 'iframe', ajaxOptions: {method:'get'}}" >
             <img src="media://com_photoalbum/photos/<?= $thumb_medium; ?>">
         </a>
     </div>
