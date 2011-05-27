@@ -45,8 +45,8 @@
 			<td align="center">
 				<?= @helper('grid.checkbox', array('row' => $photo)); ?>
 			</td>
-            <td>
-                Thumbnail
+            <td align="center">
+                <img src="media://com_photoalbum/photos/<?=$photo->thumb_small; ?>" title="<?= $photo->title;?>" alt="Thumbnail" />
             </td>
 			<td align="left">
 				<span class="editLink hasTip" title="<?= @text('Edit Event');?>::<?= @escape($photo->title);?>">
@@ -56,7 +56,7 @@
 				</span>
 			</td>
             <td>
-                filename
+                <?= $photo->filename; ?>
             </td>
             <td>
                 <?= $photo->album_title; ?>

@@ -9,5 +9,7 @@ if(!defined('KOOWA')) {
 KFactory::map('site::com.photoalbum.model.albums', 'admin::com.photoalbum.model.albums');
 KFactory::map('site::com.photoalbum.model.photos', 'admin::com.photoalbum.model.photos');
 
+KFactory::map('site::com.photoalbum.database.row.photo', 'admin::com.photoalbum.database.row.photo');
+
 // Create the controller dispatcher
 echo KFactory::get('site::com.photoalbum.dispatcher')->dispatch();
