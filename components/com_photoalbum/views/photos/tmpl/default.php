@@ -3,16 +3,22 @@
 <style>
 #photoalbum .box {
     float: left;
-    padding: 5px;
-    margin: 2px;
+    padding: 10px;
+    margin: 5px;
     border: 1px solid #ccc;
 }
 
-#photoalbum .box img { border: 1px solid #ccc;}
+#photoalbum .box img { padding: 5px; box-shadow: 0 0 5px #222;}
 
 .photo-title, .photo-description {
     display: block;
 }
+.photo-title {
+    font-weight: bold;
+    padding: 3px 0;
+    text-align: center;
+}
+
 </style>
 
 <script src="media://com_photoalbum/lightbox/js/jquery.js" />

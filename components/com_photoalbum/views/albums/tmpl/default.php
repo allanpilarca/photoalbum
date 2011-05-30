@@ -20,7 +20,7 @@
 <? foreach ($albums as $album): ?>
     <div class="albums box">
         <a href="<?= @route('view=photos&album='.$album->id); ?>">
-        <img src="media://com_photoalbum/images/photo_album.png" />
+        <img src="media://com_photoalbum/images/dashboard/icons/album.png" />
         <span class="title"><?= $album->title; ?>(<?= $album->countPhotos(); ?>)</span>
         </a>
     </div>
