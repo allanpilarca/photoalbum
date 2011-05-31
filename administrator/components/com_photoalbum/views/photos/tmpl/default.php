@@ -22,7 +22,9 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>
+                <?= @helper('admin::com.photoalbum.template.helper.listbox.albums', array('name' => 'album', 'attribs' => array('onchange' => 'this.form.submit()'))); ?>
+            </td>
 			<td align="center"><?= @helper('admin::com.default.template.helper.listbox.enabled', array('name' => 'enabled', 'attribs' => array('onchange' => 'this.form.submit()'))); ?></td>
             <td></td>
             <td></td>

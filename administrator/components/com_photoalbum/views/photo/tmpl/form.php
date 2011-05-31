@@ -29,12 +29,22 @@
 		</tr>
 		<tr>
 			<td class="key">
-				<?= @text( 'Enabled' ); ?>:
+				<?= @text('Enabled'); ?>:
 			</td>
 			<td>
 				<?= @helper('select.booleanlist', array('name' => 'enabled', 'selected' => $photo->enabled)); ?>
 			</td>
 		</tr>
+        <tr>
+            <td class="key">
+                <label for="filename">
+                    <?= @text('Filename'); ?>
+                </label>
+            </td>
+            <td>
+                <input type="text" name="filename" id="filename" size="50" value="<?= $photo->filename; ?>" />
+            </td>
+        </tr>
 		<tr>
 			<td class="key">
 				<label for="description">

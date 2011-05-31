@@ -8,7 +8,7 @@ class ComPhotoalbumDatabaseRowAlbum extends KDatabaseRowDefault
     
     public function countPhotos()
     {
-        return KFactory::tmp('site::com.photoalbum.model.photos')
+        return KFactory::tmp('admin::com.photoalbum.model.photos')
 			->set('album', $this->id)
 			->limit(null)
 			->getTotal();		
@@ -17,7 +17,7 @@ class ComPhotoalbumDatabaseRowAlbum extends KDatabaseRowDefault
     // Need to improved this code.
     public function getRandomPhoto()
     {
-        $photos = KFactory::tmp('site::com.photoalbum.model.photos')
+        $photos = KFactory::tmp('admin::com.photoalbum.model.photos')
             ->set('album', $this->id)
             ->sort('RAND()')
             ->limit(1)

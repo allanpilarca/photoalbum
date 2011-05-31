@@ -11,12 +11,14 @@
 			<th>
 				<?= @helper('grid.sort', array('column' => 'title')); ?>
 			</th>
+            <th width="150"><?= @text('Photos')?></th>
 			<th width="100"><?= @helper('grid.sort', array('column' => 'enable')); ?>
             <th width="20"><?= @helper('grid.sort', array('column' => 'id')); ?></th>
 		</tr>
 		<tr>
 			<td></td>
 			<td><input type="checkbox" name="toggle" value="" onclick="checkAll(<?= count($albums); ?>);" /></td>
+            <td></td>
             <td></td>
 			<td align="center"><?= @helper('admin::com.default.template.helper.listbox.enabled', array('name' => 'enabled', 'attribs' => array('onchange' => 'this.form.submit()'))); ?></td>
             <td></td>
@@ -46,6 +48,11 @@
 					</a>
 				</span>
 			</td>
+            <td>
+                <a href="<?= @route('view=photos&album='.$album->id); ?>">
+                    <?= @text('Manage Photos'); ?>(<?= $album->countPhotos();?>)
+                </a>
+            </td>
 			<td align="center">
 				<?= @helper('grid.enable', array('row' => $album)); ?>
 			</td>
