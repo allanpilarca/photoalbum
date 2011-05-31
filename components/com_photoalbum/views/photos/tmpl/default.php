@@ -39,6 +39,12 @@ jQuery.noConflict()(function() {
 
 <h3><?= $album->title; ?></h3>
 
+<? if ($album->description): ?>
+<div class="description">
+    <?= $album->description; ?>
+</div>
+<? endif; ?>
+
 <? foreach ($photos as $photo): ?>
     <div class="box">
         <a href="media://com_photoalbum/photos/<?= $photo->filename; ?>" title="<?= $photo->title;?>" alt="<?= $photo->description; ?>">

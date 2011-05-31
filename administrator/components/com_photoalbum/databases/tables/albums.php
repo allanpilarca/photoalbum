@@ -13,6 +13,12 @@ class ComPhotoalbumDatabaseTableAlbums extends KDatabaseTableDefault
         
         $config->behaviours = array('orderable');
 
+        $config->append(array(
+            'filters' => array(
+                'description' => array('html', 'tidy')
+            ) 
+        ));
+
         parent::_initialize($config);
     }
 }
