@@ -7,7 +7,9 @@ class ComPhotoalbumToolbarButtonThumbnail extends KToolbarButtonPost
     {
         $config->icon = 'icon-32-thumbnails';
         $config->text = 'Create Thumbnails';
-        
+
+        KFactory::get('lib.joomla.document')->addStyleDeclaration('.toolbar .icon-32-thumbnails { background-image: url('.JURI::root().'media/com_photoalbum/images/icons/thumbnails.png); }');
+
         parent::__construct($config);
     }
 

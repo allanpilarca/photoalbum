@@ -12,9 +12,9 @@ class ComPhotoalbumDatabaseRowPhoto extends KDatabaseRowDefault
         if ($column == 'thumb_small' OR $column == 'thumb_medium' OR $column == 'thumb_large') {
             $filename = basename($this->_data['filename']);
             $base_path = dirname($this->_data['filename']);
-            $thumb_small = $base_path.DS.'thumbs'.DS.'thumb_s_'.$filename;
-            $thumb_medium = $base_path.DS.'thumbs'.DS.'thumb_m_'.$filename;
-            $thumb_large = $base_path.DS.'thumbs'.DS.'thumb_l_'.$filename;
+            $thumb_small = $base_path.DS.'thumbs'.DS.'small_'.$filename;
+            $thumb_medium = $base_path.DS.'thumbs'.DS.'medium_'.$filename;
+            $thumb_large = $base_path.DS.'thumbs'.DS.'large_'.$filename;
         }
 
 		if ($column == 'thumb_small') {

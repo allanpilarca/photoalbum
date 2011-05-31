@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Default Layout">
+		<message>
+			<![CDATA[Default photos layout.]]>
+		</message>
+	</layout>
+	<state>
+        <url>
+            <param type="sql" name="album" label="Select Gallery" description="Select Gallery" query="SELECT photoalbum_album_id AS value, title as album FROM #__photoalbum_albums ORDER BY title" />
+        </url>
+		<params>
+
+		</params>
+		<advanced>
+
+		</advanced>
+	</state>
+</metadata>

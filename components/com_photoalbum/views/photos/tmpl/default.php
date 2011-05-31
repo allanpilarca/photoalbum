@@ -41,7 +41,7 @@ jQuery.noConflict()(function() {
 
 <? foreach ($photos as $photo): ?>
     <div class="box">
-        <a href="media://com_photoalbum/photos/<?= $photo->filename; ?>" title="<?= $photo->title; ?>" alt="<?= $photo->description; ?>">
+        <a href="media://com_photoalbum/photos/<?= $photo->filename; ?>" title="<?= $photo->title;?>" alt="<?= $photo->description; ?>">
             <img src="media://com_photoalbum/photos/<?= $photo->thumb_medium; ?>" />
         </a>
         <? if ($photo->title): ?>
