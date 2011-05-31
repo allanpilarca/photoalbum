@@ -37,7 +37,7 @@ class ComPhotoalbumControllerPhoto extends ComDefaultControllerDefault
                 
             }
             // Large thumbnail
-            if (!ComPhotoalbumHelperPhoto::createThumbnail($filename, $thumb_large, 640, 480)) {
+            if (!ComPhotoalbumHelperPhoto::createThumbnail($filename, $thumb_large, 640, 480, false)) {
                 
             }
         }
