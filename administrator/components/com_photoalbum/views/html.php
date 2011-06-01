@@ -11,8 +11,7 @@ class ComPhotoalbumViewHtml extends ComDefaultViewHtml
         $config->views = array(
             'dashboard' => JText::_('Dashboard'),
             'albums' => JText::_('Albums'),
-            'photos' => JText::_('Photos'),
-            'setting' => JText::_('Settings')
+            'photos' => JText::_('Photos')
         );
 
         parent::__construct($config);

@@ -1,6 +1,7 @@
 <? defined('KOOWA') or die('Restricted access');?>
 
 <style>
+
 #photoalbum .box {
     float: left;
     padding: 10px;
@@ -21,6 +22,7 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
 </style>
 
 <div id="photoalbum">

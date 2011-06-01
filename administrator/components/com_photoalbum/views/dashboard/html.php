@@ -10,7 +10,8 @@ class ComPhotoalbumViewDashboardHtml extends ComPhotoalbumViewHtml
     {
         KRequest::set('get.hidemainmenu', 0);
 
-        $this->getToolbar()->reset();
+        $this->getToolbar()->reset()
+            ->append('config');
 
         return parent::display();
     }

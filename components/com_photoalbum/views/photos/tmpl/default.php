@@ -3,9 +3,10 @@
 <style>
 #photoalbum .box {
     float: left;
-    padding: 10px;
     margin: 5px;
+/*    padding: 10px;
     border: 1px solid #ccc;
+*/
 }
 
 #photoalbum .box img { padding: 5px; box-shadow: 0 0 5px #222;}
@@ -47,13 +48,13 @@ jQuery.noConflict()(function() {
 
 <? foreach ($photos as $photo): ?>
     <div class="box">
-        <a href="media://com_photoalbum/photos/<?= $photo->filename; ?>" title="<?= $photo->title;?>" alt="<?= $photo->description; ?>">
+        <a href="media://com_photoalbum/photos/<?= $photo->filename; ?>" title="<?= $photo->title;?>::<?= $photo->description;?>" alt="<?= $photo->description; ?>">
             <img src="media://com_photoalbum/photos/<?= $photo->thumb_medium; ?>" />
         </a>
-        <? if ($photo->title): ?>
+        <? if ($photo->title and false): ?>
         <span class="photo-title"><?= $photo->title; ?></span>
         <? endif; ?>
-        <? if ($photo->description): ?>
+        <? if ($photo->description and false): ?>
         <span class="photo-description"></span>
         <? endif; ?>
     </div>

@@ -11,7 +11,8 @@ class ComPhotoalbumViewPhotosHtml extends ComPhotoalbumViewHtml
         KFactory::get('admin::com.photoalbum.toolbar.photos')
             ->append('enable')
             ->append('disable')
-            ->append('thumbnail');
+            ->append('thumbnail')
+            ->append('config');
 
         return parent::display();
     }

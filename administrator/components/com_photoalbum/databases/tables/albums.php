@@ -11,7 +11,7 @@ class ComPhotoalbumDatabaseTableAlbums extends KDatabaseTableDefault
         $config->name = 'photoalbum_albums';
         $config->base = 'photoalbum_albums';
         
-        $config->behaviours = array('orderable');
+        $config->behaviors = array('orderable');
 
         $config->append(array(
             'filters' => array(

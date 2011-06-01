@@ -13,6 +13,7 @@
 			</th>
             <th width="150"><?= @text('Photos')?></th>
 			<th width="100"><?= @helper('grid.sort', array('column' => 'enable')); ?>
+            <th width="80"><?= @helper('grid.sort', array('column' => 'order')); ?></th>
             <th width="20"><?= @helper('grid.sort', array('column' => 'id')); ?></th>
 		</tr>
 		<tr>
@@ -21,6 +22,7 @@
             <td></td>
             <td></td>
 			<td align="center"><?= @helper('admin::com.default.template.helper.listbox.enabled', array('name' => 'enabled', 'attribs' => array('onchange' => 'this.form.submit()'))); ?></td>
+            <td></td>
             <td></td>
 		</tr>
 	</thead>
@@ -56,6 +58,9 @@
 			<td align="center">
 				<?= @helper('grid.enable', array('row' => $album)); ?>
 			</td>
+			<td align="center">
+				<?= @helper('grid.order', array('row' => $album)); ?>
+			</td>            
             <td align="center">
                 <?= $album->id; ?>
             </td>
